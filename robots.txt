@@ -1,0 +1,12 @@
+# Robots.txt for Pinewood Blooms
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /data/
+
+# Sitemaps
+Sitemap: https://pinewoodblooms.com/sitemap.xml
+
+# Crawler delays (optional)
+Crawl-delay: 1

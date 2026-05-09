@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pinewood Blooms creates handcrafted candle wax flower arrangements, gift-ready bouquets, custom designs, and nature-inspired artisan decor in Central New York.">
+    <meta name="keywords" content="wax flower bouquets, handmade flowers, candle arrangements, custom bouquets, artisan gifts, Central New York">
+    <meta property="og:title" content="Pinewood Blooms - Handcrafted Wax Flower Arrangements">
+    <meta property="og:description" content="Handcrafted candle wax florals with woodland texture, warm vessels, and gift-ready care.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pinewoodblooms.com">
+    <meta property="og:image" content="https://pinewoodblooms.com/images/home-hero-background.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pinewood Blooms - Handcrafted Wax Flower Arrangements">
+    <meta name="twitter:description" content="Handcrafted candle wax florals inspired by pinewoods, botanicals, and thoughtful gifting.">
+    <title>Pinewood Blooms - Handcrafted Wax Flower Arrangements</title>
+    <link rel="icon" type="image/png" href="images/pinewood-blooms-logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand fw-bold" href="#home" aria-label="Pinewood Blooms home">
+                <span class="brand-wordmark"><span style="color: #687262;">Pinewood</span> <span style="color: #D4A574;">Blooms</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#story">Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collection">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home">
+        <section class="hero-section home-hero text-center py-5">
+            <div class="container-lg py-5">
+                <p class="section-kicker">Handcrafted in Central New York</p>
+                <h1 class="display-4 fw-bold mb-3">Pinewood Blooms</h1>
+                <p class="lead mb-4">Candle wax floral arrangements with woodland textures, gift-ready vessels, and a warm handmade finish.</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="#collection" class="btn btn-lg" style="background-color: #687262; color: white;">Shop the Collection</a>
+                    <a href="#contact" class="btn btn-lg btn-outline-dark">Request Custom Bouquet</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="py-5" style="background-color: white;">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="section-kicker">Small-batch arrangements</p>
+                        <h2 class="mb-3" style="color: #687262;">Made to Feel Personal</h2>
+                        <img src="images/pinewood-blooms-logo.png" alt="Pinewood Blooms handcrafted nature inspired badge logo" class="about-inline-logo">
+                        <p style="color: #4A3F35; line-height: 1.8;">Pinewood Blooms is a family-run handmade studio inspired by rustic craftsmanship, thoughtful gifting, and the soft texture of nature. Each arrangement blends sculpted candle wax florals with preserved botanicals, pine-inspired details, and carefully chosen vessels.</p>
+                        <p style="color: #4A3F35; line-height: 1.8;">Our pieces are designed to feel warm, lasting, and ready to give for holidays, birthdays, markets, centerpieces, memorial keepsakes, and custom occasions.</p>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-4">
+                                <div class="feature-panel h-100">
+                                    <p>Handmade</p>
+                                    <h3>Petal by petal</h3>
+                                    <p>Each bouquet is arranged in-house with care for shape, texture, and balance.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-panel h-100">
+                                    <p>Gift ready</p>
+                                    <h3>Vessel included</h3>
+                                    <p>Many designs arrive in ceramic mugs, pots, or keepsake vessels.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-panel h-100">
+                                    <p>Customizable</p>
+                                    <h3>Made for you</h3>
+                                    <p>Request colors, style, timeline, occasion, and budget range.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collection" class="py-5" style="background-color: #F5F1E8;">
+            <div class="container-lg">
+                <p class="section-kicker text-center">Ready to gift</p>
+                <h2 class="text-center mb-3" style="color: #687262;">Signature Arrangements</h2>
+                <p class="section-copy text-center mb-5">A focused look at current favorites. Each piece is handmade in small batches, and custom designs can be requested by color palette, vessel, occasion, and timeline.</p>
+                <div id="products-grid" class="row g-4">
+                    <!-- Products loaded via JavaScript from CSV -->
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="py-5" style="background-color: white;">
+            <div class="container-lg">
+                <div class="row align-items-end mb-5">
+                    <div class="col-lg-8">
+                        <p class="section-kicker">In person</p>
+                        <h2 class="mb-3" style="color: #687262;">Markets & Events</h2>
+                        <p class="mb-0" style="color: #4A3F35; line-height: 1.8;">Visit us locally to see arrangement scale, wax detail, vessel options, and seasonal color palettes up close.</p>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
+                        <a href="#contact" class="btn btn-outline-dark">Ask About an Event</a>
+                    </div>
+                </div>
+                <div id="events-grid" class="row g-4">
+                    <!-- Events loaded via JavaScript from CSV -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5" style="background-color: #F5F1E8;">
+            <div class="container-lg">
+                <div class="row g-5">
+                    <div class="col-lg-7">
+                        <p class="section-kicker">Custom Orders</p>
+                        <h2 class="mb-4" style="color: #687262;">Start a Bouquet Request</h2>
+                        <form id="contactForm" class="needs-validation">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <div class="invalid-feedback">Please provide your name.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="invalid-feedback">Please provide a valid email.</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject">
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="customBouquet" name="customBouquet">
+                                <label class="form-check-label" for="customBouquet">I'm interested in requesting a custom bouquet</label>
+                            </div>
+
+                            <div id="customBouquetFields" style="display: none; background-color: #F5F1E8; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                                <h5 style="color: #687262; margin-bottom: 1rem;">Custom Bouquet Details</h5>
+                                <div class="mb-3">
+                                    <label for="bouquetDescription" class="form-label">Describe Your Vision *</label>
+                                    <textarea class="form-control" id="bouquetDescription" name="bouquetDescription" rows="3" placeholder="Colors, style, occasion, vessel ideas, or inspiration."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="leadTime" class="form-label">Preferred Timeline *</label>
+                                    <select class="form-select" id="leadTime" name="leadTime">
+                                        <option value="">Select a lead time...</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="budget" class="form-label">Approximate Budget (Optional)</label>
+                                    <input type="text" class="form-control" id="budget" name="budget" placeholder="e.g., $50-75">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us more..." required></textarea>
+                                <div class="invalid-feedback">Please provide a message.</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-lg" style="background-color: #687262; color: white;">Send Message</button>
+                            <div id="formMessage" class="mt-3"></div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="contact-card" style="background-color: #F5F1E8; padding: 2rem; border-radius: 10px; position: sticky; top: 100px;">
+                            <h3 style="color: #687262;">Contact Information</h3>
+                            <div class="mb-4">
+                                <p style="color: #4A3F35; margin-bottom: 0.5rem;"><strong>Email</strong></p>
+                                <p><a href="mailto:pinewoodblooms@gmail.com" style="color: #687262; text-decoration: none;">pinewoodblooms@gmail.com</a></p>
+                            </div>
+                            <div class="mb-4">
+                                <p style="color: #4A3F35; margin-bottom: 0.5rem;"><strong>Location</strong></p>
+                                <p>Central New York, USA</p>
+                            </div>
+                            <div class="mb-4">
+                                <p style="color: #4A3F35; margin-bottom: 0.5rem;"><strong>Follow Us</strong></p>
+                                <div style="display: flex; gap: 1rem;">
+                                    <a href="https://instagram.com" style="color: #687262; text-decoration: none; font-size: 1.1rem;">Instagram</a>
+                                    <a href="https://etsy.com" style="color: #687262; text-decoration: none; font-size: 1.1rem;">Etsy</a>
+                                </div>
+                            </div>
+                            <div class="story-panel">
+                                <p style="margin: 0;"><strong>Lead times:</strong> Custom arrangements are usually planned in 1-4 weeks depending on season, materials, and order size.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="policies" class="py-5" style="background-color: white;">
+            <div class="container-lg">
+                <p class="section-kicker text-center">Ordering Notes</p>
+                <h2 class="text-center mb-3" style="color: #687262;">Terms, Conditions & Care</h2>
+                <p class="section-copy text-center mb-5">Please review these details before ordering. Because every piece is handmade, final timelines, delivery options, and custom details are confirmed when your order is quoted.</p>
+                <div class="accordion terms-accordion" id="termsAccordion">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#termsOne" aria-expanded="true" aria-controls="termsOne">
+                                Terms, Policies & Product Disclaimer
+                            </button>
+                        </h3>
+                        <div id="termsOne" class="accordion-collapse collapse show" aria-labelledby="termsHeadingOne" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Pinewood Blooms creates handcrafted wax floral arrangements, decorative vessels, and nature-inspired keepsakes. Product photos, colors, foliage placement, vessel details, and overall scale may vary slightly because each piece is made by hand and materials are sourced in small batches. We may update products, pricing, availability, site content, or policies at any time.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsTwo" aria-expanded="false" aria-controls="termsTwo">
+                                Intellectual Property & Copyright
+                            </button>
+                        </h3>
+                        <div id="termsTwo" class="accordion-collapse collapse" aria-labelledby="termsHeadingTwo" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                All Pinewood Blooms logos, product images, descriptions, arrangement designs, website copy, graphics, and branding are the property of Pinewood Blooms unless otherwise noted. Please do not copy, reproduce, resell, or use our photos, designs, or written content for commercial purposes without written permission.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsThree" aria-expanded="false" aria-controls="termsThree">
+                                Product Use & Handmade Safety
+                            </button>
+                        </h3>
+                        <div id="termsThree" class="accordion-collapse collapse" aria-labelledby="termsHeadingThree" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Pinewood Blooms arrangements are decorative items and are not food, toys, or fresh flowers. Keep arrangements away from open flame, direct heat, pets, and small children. Do not burn an arrangement unless a product is clearly labeled for candle use, and always follow the care guidance included with your order.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsFour" aria-expanded="false" aria-controls="termsFour">
+                                Materials, Sensitivities & Care
+                            </button>
+                        </h3>
+                        <div id="termsFour" class="accordion-collapse collapse" aria-labelledby="termsHeadingFour" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Arrangements may include wax florals, faux greenery, dried or preserved botanicals, fragrance, ribbon, ceramic vessels, and other decorative materials. If you have sensitivities to fragrance, botanicals, waxes, dyes, or related materials, please contact us before ordering. Store pieces in a cool, dry area away from direct sunlight, water, humidity, and high heat to help preserve color, shape, and texture.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsFive" aria-expanded="false" aria-controls="termsFive">
+                                Order Processing & Shipping
+                            </button>
+                        </h3>
+                        <div id="termsFive" class="accordion-collapse collapse" aria-labelledby="termsHeadingFive" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Ready-made items are typically prepared within 1-3 business days. Custom arrangements usually require 1-4 weeks depending on design complexity, materials, order size, and season. Shipping, local delivery, or pickup options are confirmed during checkout or quoting. Carrier timelines are estimates and may change due to weather, holidays, or delays outside our control.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsSix" aria-expanded="false" aria-controls="termsSix">
+                                Returns, Refunds & Exchanges
+                            </button>
+                        </h3>
+                        <div id="termsSix" class="accordion-collapse collapse" aria-labelledby="termsHeadingSix" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Because each item is handmade and many orders are custom or gift-prepared, sales are generally final once production begins or an item ships. If your order arrives damaged, incorrect, or materially different from the confirmed order details, please contact us promptly with your order information and clear photos so we can review the issue.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsSeven" aria-expanded="false" aria-controls="termsSeven">
+                                Small Batch & Discount Policy
+                            </button>
+                        </h3>
+                        <div id="termsSeven" class="accordion-collapse collapse" aria-labelledby="termsHeadingSeven" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Pinewood Blooms works in small batches, so product availability, vessels, botanicals, and seasonal colors may be limited. Discounts, market specials, custom quotes, and promotional offers cannot be combined unless we confirm otherwise in writing.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsEight" aria-expanded="false" aria-controls="termsEight">
+                                Warm Weather Shipping
+                            </button>
+                        </h3>
+                        <div id="termsEight" class="accordion-collapse collapse" aria-labelledby="termsHeadingEight" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                Wax is sensitive to heat. During warm weather, arrangements may soften if exposed to high temperatures in transit, mailboxes, vehicles, porches, or direct sun. Bring packages indoors quickly and allow them to return to room temperature before handling. Heat-related softening after delivery is outside our control.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="termsHeadingNine">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#termsNine" aria-expanded="false" aria-controls="termsNine">
+                                Issues With Your Order
+                            </button>
+                        </h3>
+                        <div id="termsNine" class="accordion-collapse collapse" aria-labelledby="termsHeadingNine" data-bs-parent="#termsAccordion">
+                            <div class="accordion-body">
+                                If something is wrong with your order, email <a href="mailto:pinewoodblooms@gmail.com">pinewoodblooms@gmail.com</a> with your name, order details, delivery date, and photos. We review order concerns individually and will respond with the next available resolution.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: #4A3F35; color: white; padding: 2rem 0;">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="images/pinewood-blooms-logo.png" alt="Pinewood Blooms logo" class="footer-logo">
+                    <h5>Pinewood Blooms</h5>
+                    <p>Handcrafted nature-inspired flower bouquets from Central New York.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#story" style="color: #D4A574; text-decoration: none;">Story</a></li>
+                        <li><a href="#collection" style="color: #D4A574; text-decoration: none;">Collection</a></li>
+                        <li><a href="#events" style="color: #D4A574; text-decoration: none;">Events</a></li>
+                        <li><a href="#contact" style="color: #D4A574; text-decoration: none;">Contact</a></li>
+                        <li><a href="#policies" style="color: #D4A574; text-decoration: none;">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://instagram.com" style="color: #D4A574; text-decoration: none; font-size: 1.3rem;">Instagram</a>
+                        <a href="https://etsy.com" style="color: #D4A574; text-decoration: none; font-size: 1.3rem;">Etsy</a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: #687262; margin: 2rem 0;">
+            <div class="row">
+                <div class="col-md-6" style="font-size: 0.9rem;">
+                    <p>&copy; 2026 Pinewood Blooms LLC. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end" style="font-size: 0.9rem;">
+                    <p><a href="#policies" style="color: #D4A574; text-decoration: none;">Terms & Conditions</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pinewood Blooms LLC",
+        "description": "Handcrafted nature-inspired wax flower bouquets and artisan creations",
+        "url": "https://pinewoodblooms.com",
+        "logo": "https://pinewoodblooms.com/images/pinewood-blooms-logo.png",
+        "location": {
+            "@type": "Place",
+            "name": "Central New York",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "NY",
+                "addressCountry": "US"
+            }
+        },
+        "sameAs": ["https://instagram.com", "https://etsy.com"]
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/lead-times.js"></script>
+    <script src="js/contact.js"></script>
+    <script>
+        document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('navbarNav');
+                const collapse = bootstrap.Collapse.getInstance(nav);
+                if (collapse) collapse.hide();
+            });
+        });
+
+        const navLinks = [...document.querySelectorAll('.nav-link[href^="#"]')];
+        const sections = navLinks
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        const setActiveNav = () => {
+            const offset = window.scrollY + 140;
+            const current = sections.reduce((active, section) => {
+                return section.offsetTop <= offset ? section : active;
+            }, sections[0]);
+
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
+            });
+        };
+
+        window.addEventListener('scroll', setActiveNav, { passive: true });
+        setActiveNav();
+    </script>
+</body>
+</html>
