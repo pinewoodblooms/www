@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         messageBody += `Special Notes:\n${formData.get('specialNotes') || 'N/A'}\n`;
 
         const formMessage = document.getElementById('formMessage');
-        const accessKey = 'YOUR_WEB3FORM_ACCESS_KEY';
+        const accessKey = 'c188c090-7385-41f7-84b5-3fd56025de30';
         const subject = 'Pinewood Blooms Custom Order Request';
 
         if (accessKey === 'YOUR_WEB3FORM_ACCESS_KEY') {
