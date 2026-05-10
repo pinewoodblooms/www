@@ -881,7 +881,7 @@ select:focus-visible {
         align-items: center;
         padding-bottom: 1.5rem !important;
         background:
-            linear-gradient(180deg, rgba(251, 247, 239, 0.82) 0%, rgba(251, 247, 239, 0.52) 48%, rgba(251, 247, 239, 0.12) 100%),
+            linear-gradient(180deg, rgba(251, 247, 239, 0.5) 0%, rgba(251, 247, 239, 0.22) 48%, rgba(251, 247, 239, 0.02) 100%),
             url("../images/home-hero-background.png") 86% center / cover no-repeat !important;
     }
 
@@ -892,6 +892,8 @@ select:focus-visible {
     .hero-section.home-hero h1 {
         max-width: 21rem;
         font-size: 2.75rem;
+        font-weight: 700;
+        text-shadow: 0 2px 14px rgba(251, 247, 239, 0.72);
     }
 
     .hero-section .lead,
@@ -901,6 +903,13 @@ select:focus-visible {
 
     .hero-section.home-hero .lead {
         max-width: 20.5rem;
+        font-weight: 600;
+        text-shadow: 0 1px 12px rgba(251, 247, 239, 0.78);
+    }
+
+    .hero-section.home-hero .section-kicker {
+        font-weight: 800;
+        text-shadow: 0 1px 10px rgba(251, 247, 239, 0.86);
     }
 
     .hero-section.home-hero .btn[style*="background-color: #687262"] {
