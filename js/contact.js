@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     const preferredDateFeedback = document.getElementById('preferredDateFeedback');
     const orderSummary = document.getElementById('orderSummary');
     const blockedDates = await loadBlockedDates();
-    const datePicker = initializeDatePicker(preferredDateInput, blockedDates);
+    const rollingPreparationDates = getRollingPreparationDates(3);
+    const disabledDates = new Set([...blockedDates, ...rollingPreparationDates]);
+    const datePicker = initializeDatePicker(preferredDateInput, disabledDates);
 
     function getSelectedSize() {
         const option = sizeSelect.selectedOptions[0];
@@ -92,6 +94,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (blockedDates.has(selectedValue)) {
             preferredDateInput.setCustomValidity('Please select a date that is not blocked out.');
             preferredDateFeedback.textContent = 'That date is currently blocked out. Please choose another date.';
+            return;
+        }
+
+        if (rollingPreparationDates.has(selectedValue)) {
+            preferredDateInput.setCustomValidity('Please select a date outside the preparation window.');
+            preferredDateFeedback.textContent = 'The current day and next preparation days are unavailable. Please choose a later date.';
             return;
         }
 
@@ -210,20 +218,34 @@ function initializeDatePicker(input, blockedDates) {
     });
 }
 
+function getRollingPreparationDates(days) {
+    const dates = new Set();
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+
+    for (let i = 0; i < days; i++) {
+        const blockedDate = new Date(date);
+        blockedDate.setDate(date.getDate() + i);
+        dates.add(formatDateValue(blockedDate));
+    }
+
+    return dates;
+}
+
 function getQuantityTimingAdjustment(quantity) {
     if (quantity > 10) {
         return {
             extraDays: 3,
-            helpText: 'Orders over 10 require date confirmation with Pinewood Blooms.',
-            summaryText: 'Orders over 10 may impact the requested pickup or local delivery date and must be confirmed with Pinewood Blooms.'
+            helpText: 'Orders over 10 require date confirmation, and Pinewood Blooms will reach out to confirm timing.',
+            summaryText: 'Orders over 10 may impact the requested pickup or local delivery date. Pinewood Blooms will reach out to confirm the order date.'
         };
     }
 
     if (quantity >= 5) {
         return {
             extraDays: 3,
-            helpText: 'Quantities of 5 or more add 3 available days.',
-            summaryText: 'Quantities of 5 or more add 3 available days to the standard timeframe.'
+            helpText: 'Quantities of 5 or more add 3 available days and may affect the requested date.',
+            summaryText: 'Quantities of 5 or more add 3 available days to the standard timeframe. Pinewood Blooms will reach out if the requested date needs adjustment.'
         };
     }
 
