@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const preferredDateFeedback = document.getElementById('preferredDateFeedback');
     const orderSummary = document.getElementById('orderSummary');
     const blockedDates = await loadBlockedDates();
+    const datePicker = initializeDatePicker(preferredDateInput, blockedDates);
 
     function getSelectedSize() {
         const option = sizeSelect.selectedOptions[0];
@@ -34,6 +35,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             preferredDateInput.removeAttribute('min');
             preferredDateInput.value = '';
             preferredDateInput.setCustomValidity('');
+            if (datePicker) {
+                datePicker.clear();
+                datePicker.set('minDate', null);
+            }
             availabilityHelp.textContent = 'Select a size to see the earliest available date.';
             orderSummary.textContent = 'Select a size and quantity to see pricing and timing.';
             return;
@@ -47,6 +52,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         const total = size.price * quantity;
 
         preferredDateInput.min = earliestDateValue;
+        if (datePicker) {
+            datePicker.set('minDate', earliestDateValue);
+            const selectedDate = preferredDateInput.value ? parseDateValue(preferredDateInput.value) : null;
+            if (selectedDate && selectedDate < earliestDate) {
+                datePicker.clear();
+            }
+        }
         availabilityHelp.textContent = `${size.name} vases need ${adjustedMinDays}-${adjustedMaxDays} available days for this quantity. Earliest available date: ${formatDisplayDate(earliestDate)}.${timingAdjustment.helpText ? ` ${timingAdjustment.helpText}` : ''}`;
         orderSummary.innerHTML = `
             <strong>${escapeHtml(size.name)}:</strong> $${size.price} each + applicable NY sales tax<br>
@@ -183,6 +195,19 @@ async function loadBlockedDates() {
         console.error('Error loading block-out days:', error);
         return new Set();
     }
+}
+
+function initializeDatePicker(input, blockedDates) {
+    if (!window.flatpickr) return null;
+
+    return flatpickr(input, {
+        dateFormat: 'Y-m-d',
+        disableMobile: true,
+        disable: [...blockedDates],
+        onChange: () => {
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
 }
 
 function getQuantityTimingAdjustment(quantity) {

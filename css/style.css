@@ -712,6 +712,38 @@ section[style*="linear-gradient(135deg, #687262"] {
     color: var(--muted);
 }
 
+.flatpickr-calendar {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    background: var(--paper);
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected:hover {
+    border-color: var(--sage);
+    background: var(--sage);
+}
+
+.flatpickr-day.today {
+    border-color: var(--rose);
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.prevMonthDay.flatpickr-disabled,
+.flatpickr-day.nextMonthDay.flatpickr-disabled {
+    color: rgba(31, 27, 24, 0.36);
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--rose);
+    background: rgba(155, 103, 84, 0.08);
+    cursor: not-allowed;
+}
+
 /* Footer */
 footer {
     padding: 3.5rem 0 2rem !important;
