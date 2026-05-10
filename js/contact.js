@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     function updateOrderDetails() {
         const size = getSelectedSize();
         const quantity = Math.max(1, Number(quantityInput.value || 1));
+        const timingAdjustment = getQuantityTimingAdjustment(quantity);
 
         if (!size) {
             preferredDateInput.removeAttribute('min');
@@ -38,18 +39,21 @@ document.addEventListener('DOMContentLoaded', async function() {
             return;
         }
 
-        const earliestDate = addAvailableDays(new Date(), size.minDays, blockedDates);
-        const latestTypicalDate = addAvailableDays(new Date(), size.maxDays, blockedDates);
+        const adjustedMinDays = size.minDays + timingAdjustment.extraDays;
+        const adjustedMaxDays = size.maxDays + timingAdjustment.extraDays;
+        const earliestDate = addAvailableDays(new Date(), adjustedMinDays, blockedDates);
+        const latestTypicalDate = addAvailableDays(new Date(), adjustedMaxDays, blockedDates);
         const earliestDateValue = formatDateValue(earliestDate);
         const total = size.price * quantity;
 
         preferredDateInput.min = earliestDateValue;
-        availabilityHelp.textContent = `${size.name} vases need ${size.minDays}-${size.maxDays} available days. Earliest available date: ${formatDisplayDate(earliestDate)}.`;
+        availabilityHelp.textContent = `${size.name} vases need ${adjustedMinDays}-${adjustedMaxDays} available days for this quantity. Earliest available date: ${formatDisplayDate(earliestDate)}.${timingAdjustment.helpText ? ` ${timingAdjustment.helpText}` : ''}`;
         orderSummary.innerHTML = `
             <strong>${escapeHtml(size.name)}:</strong> $${size.price} each + applicable NY sales tax<br>
             <strong>Estimated pre-tax total:</strong> $${total}<br>
             <strong>Sales tax:</strong> Added when your order is confirmed<br>
             <strong>Typical timing:</strong> ${formatDisplayDate(earliestDate)} to ${formatDisplayDate(latestTypicalDate)}
+            ${timingAdjustment.summaryText ? `<br><strong>Quantity note:</strong> ${escapeHtml(timingAdjustment.summaryText)}` : ''}
         `;
 
         validatePreferredDate();
@@ -57,12 +61,14 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function validatePreferredDate() {
         const size = getSelectedSize();
+        const quantity = Math.max(1, Number(quantityInput.value || 1));
+        const timingAdjustment = getQuantityTimingAdjustment(quantity);
         const selectedValue = preferredDateInput.value;
         preferredDateInput.setCustomValidity('');
 
         if (!size || !selectedValue) return;
 
-        const earliestDate = addAvailableDays(new Date(), size.minDays, blockedDates);
+        const earliestDate = addAvailableDays(new Date(), size.minDays + timingAdjustment.extraDays, blockedDates);
         const selectedDate = parseDateValue(selectedValue);
 
         if (selectedDate < earliestDate) {
@@ -98,6 +104,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const formData = new FormData(contactForm);
         const size = getSelectedSize();
         const quantity = Math.max(1, Number(formData.get('quantity') || 1));
+        const timingAdjustment = getQuantityTimingAdjustment(quantity);
         const estimatedTotal = size.price * quantity;
 
         let messageBody = `Name: ${formData.get('name')}\n`;
@@ -108,6 +115,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         messageBody += `Quantity: ${quantity}\n`;
         messageBody += `Estimated Pre-Tax Total: $${estimatedTotal}\n`;
         messageBody += `Sales Tax: Applicable NY sales tax to be added when order is confirmed\n`;
+        if (timingAdjustment.summaryText) {
+            messageBody += `Quantity Timing Note: ${timingAdjustment.summaryText}\n`;
+        }
         messageBody += `Color 1: ${formData.get('color1')}\n`;
         messageBody += `Color 2: ${formData.get('color2') || 'N/A'}\n`;
         messageBody += `Color 3: ${formData.get('color3') || 'N/A'}\n`;
@@ -173,6 +183,30 @@ async function loadBlockedDates() {
         console.error('Error loading block-out days:', error);
         return new Set();
     }
+}
+
+function getQuantityTimingAdjustment(quantity) {
+    if (quantity > 10) {
+        return {
+            extraDays: 3,
+            helpText: 'Orders over 10 require date confirmation with Pinewood Blooms.',
+            summaryText: 'Orders over 10 may impact the requested pickup or local delivery date and must be confirmed with Pinewood Blooms.'
+        };
+    }
+
+    if (quantity >= 5) {
+        return {
+            extraDays: 3,
+            helpText: 'Quantities of 5 or more add 3 available days.',
+            summaryText: 'Quantities of 5 or more add 3 available days to the standard timeframe.'
+        };
+    }
+
+    return {
+        extraDays: 0,
+        helpText: '',
+        summaryText: ''
+    };
 }
 
 function addAvailableDays(startDate, days, blockedDates) {

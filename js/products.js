@@ -108,7 +108,7 @@ function renderProductCards(products, container) {
                         <p class="product-description">${escapeHtml(description)}</p>
                         <div class="product-footer">
                             <span class="product-price">${escapeHtml(price)}</span>
-                            <a href="#contact" class="btn btn-sm">Request Similar</a>
+                            <a href="#contact" class="btn btn-sm">Inquire</a>
                         </div>
                     </div>
                 </article>
