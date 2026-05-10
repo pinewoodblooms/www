@@ -14,6 +14,7 @@ async function loadEvents() {
 
         const csvData = await response.text();
         const events = parseEventCSV(csvData)
+            .filter(isCurrentOrFutureEvent)
             .sort((a, b) => new Date(a.date) - new Date(b.date));
 
         const upcomingContainer = document.getElementById('upcoming-events');
@@ -96,9 +97,27 @@ function formatDate(dateString) {
     });
 }
 
+function isCurrentOrFutureEvent(event) {
+    const dateString = event.date || '';
+    const eventDate = new Date(`${dateString}T23:59:59`);
+    if (Number.isNaN(eventDate.getTime())) return false;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return eventDate >= today;
+}
+
 function renderEventCards(events, container) {
     if (!events.length) {
-        container.innerHTML = '<div class="col-12"><p class="text-muted">No upcoming events are listed yet. Check back soon.</p></div>';
+        container.innerHTML = `
+            <div class="col-12">
+                <article class="event-card event-card-empty">
+                    <div class="event-title">No Events Scheduled</div>
+                    <div class="event-description">We do not have any markets or pop-ups on the calendar right now. Check back soon for future Central New York events, or contact us about custom orders anytime.</div>
+                </article>
+            </div>
+        `;
         return;
     }
 
